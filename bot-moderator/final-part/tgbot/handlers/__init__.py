@@ -1,1 +1,1 @@
-from . import admins, ban, dice, help, kick, mute, start, new_chat_members
+from . import admins, ban, dice, help, kick, mute, text, start, new_chat_members
