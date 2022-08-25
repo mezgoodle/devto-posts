@@ -15,4 +15,6 @@ async def on_user_joined(message: Message, state: FSMContext) -> Message:
     await state.update_data(result=result, new_member_id=new_member.id)
     await state.set_state('waiting_for_answer')
     await message.delete()
-    return await message.answer(f"Welcome, {new_member.full_name}! Solve this mathematical expression: {hbold(first_number)} + {hbold(second_number)}. You only have one attempt")
+    message = await message.answer(f"Welcome, {new_member.full_name}! Solve this mathematical expression: {hbold(first_number)} + {hbold(second_number)}. You only have one attempt")
+    await state.update_data(message_id=message.message_id)
+    return message
