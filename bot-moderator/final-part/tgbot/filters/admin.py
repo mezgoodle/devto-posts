@@ -8,6 +8,6 @@ class IsAdminFilter(BoundFilter):
     def __init__(self, is_admin):
         self.is_admin = is_admin
 
-    async def check(self, message: types.Message):
+    async def check(self, message: types.Message) -> bool:
         member = await message.bot.get_chat_member(message.chat.id, message.from_user.id)
         return member.is_chat_admin()
